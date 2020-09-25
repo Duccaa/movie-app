@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Redirect } from 'react-router-dom'
 
  const Input = styled.input`
     display: block; 
@@ -23,7 +22,6 @@ const Div = styled.div`
     background-repeat: no-repeat; 
     background-size: cover;
 `
-
 const SignIn = ({users, setUser, setUsers}) => {
 
     const [username, setUsername] = useState('')

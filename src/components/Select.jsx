@@ -8,7 +8,7 @@ const SelectCodes = styled.select`
     padding: 5px; 
     borderRadius: 5px; 
     border: double;
-    `
+`
 const Select = ({codes, setCode}) => {
 
     return (
@@ -16,8 +16,8 @@ const Select = ({codes, setCode}) => {
             <label style={{color: 'white'}}>Search for Upcoming Movies in Your Country:</label>
             <br />
             <SelectCodes defaultValue={'default'} onChange={(e) => setCode(e.target.value)}>
-            <option value="default" disabled>Choose a country...</option>
-            {codes.map(code => <option key={code.iso_3166_1} value={code.iso_3166_1}>{code.english_name}</option>)}
+                <option value="default" disabled>Choose a country...</option>
+                {codes.map(code => <option key={code.iso_3166_1} value={code.iso_3166_1}>{code.english_name}</option>)}
             </SelectCodes>
         </div>
     )

@@ -2,15 +2,15 @@ import React, { useState, useEffect }from 'react'
 import styled from 'styled-components'
 
 const Select = styled.select`
-color: skyblue; 
-margin: 15px;
-padding: 5px; 
-borderRadius: 5px; 
-border: double;
+    color: skyblue; 
+    margin: 15px;
+    padding: 5px; 
+    borderRadius: 5px; 
+    border: double;
 `
 const Div = styled.div`
-display: inline-block; 
-margin: 15px;
+    display: inline-block; 
+    margin: 15px;
 `
 const Sort = ({arr, setPopular}) => {
 
@@ -23,12 +23,12 @@ const Sort = ({arr, setPopular}) => {
   
     return (
         <Div>
-        <label style={{color: 'white'}}>Sort Results By:</label>
-        <Select onChange={(e) => setSortType(e.target.value)}>
-            <option value="popularity">Popularity</option>
-            <option value="release_date">Release Date</option>
-            <option value="title">Title</option>
-        </Select>
+            <label style={{color: 'white'}}>Sort Results By:</label>
+            <Select onChange={(e) => setSortType(e.target.value)}>
+                <option value="popularity">Popularity</option>
+                <option value="release_date">Release Date</option>
+                <option value="title">Title</option>
+            </Select>
         </Div>
     )
 }

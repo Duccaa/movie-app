@@ -4,12 +4,12 @@ import styled from 'styled-components';
 Modal.setAppElement('#root')
 
 const Button = styled.button`
-background-color: DarkCyan; 
-color: white; 
-border: none; 
-border-radius: 5px; 
-margin-right: 10px; 
-padding: 5px;
+    background-color: DarkCyan; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    margin-right: 10px; 
+    padding: 5px;
 `
 
 const WatchList = ({arr, set}) => {
@@ -27,14 +27,13 @@ const WatchList = ({arr, set}) => {
             tmp[i]=false
             return  tmp
         });
-        console.log(modalIsOpen);
+        // console.log(modalIsOpen);
     }
-
     const DeleteMovie = (id) => {
         let temp = [...arr]
         temp.splice(temp.findIndex(el => el.id === id), 1)
         set(temp)
-      }
+    }
 
     return (
         <div style={{display: 'flex', flexWrap: 'wrap', marginLeft: '30px'}}>
@@ -76,7 +75,6 @@ const WatchList = ({arr, set}) => {
             )}    
         </div>      
     )
-
 }
 
 export default WatchList

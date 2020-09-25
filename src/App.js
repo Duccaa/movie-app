@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, useParams, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import { getPopularMovies, getNowPlayingMovies, getCoutryCodes } from '../src/services/services';
 import Nav from './components/Nav';
@@ -9,7 +9,7 @@ import MovieList from './components/MovieList';
 import WatchList from './components/WatchList';
 import ActualList from './components/ActualList';
 
-const App = ({}) => { 
+const App = () => { 
 
   const [user, setUser] = useState(null)
   const [users, setUsers] = useState([
@@ -20,7 +20,6 @@ const App = ({}) => {
   }
   ])
  
-
   const [filter, setFilter] = useState('')
   const [codes, setCodes] = useState([])
   const [code, setCode] = useState('us')
@@ -33,7 +32,6 @@ const App = ({}) => {
   const [totalAcPages, setTotalAcPages] = useState(1)
   const [pending, setPending] = useState([])
  
-
   useEffect(() =>{
     getCoutryCodes().then(res => {
       setCodes(res.data)
@@ -71,35 +69,41 @@ const App = ({}) => {
     <Router basename="/movie-app"> 
       <Nav setUser={setUser} user={user} />
       <Switch>
-         <Route exact path="/">
-            {!user ?
+        <Route exact path="/">
+          {
+          !user ?
           <SignIn setUser={setUser} users={users} user={user} setUsers={setUsers}/>
            :
-           <Redirect to="/popular" />}
+           <Redirect to="/popular" />
+           }
         </Route>
         <Route path="/signup">
-        {!user ?
+          {
+          !user ?
           <SignUp users={users} setUsers={setUsers} setUser={setUser}/>
           :
           <Redirect to="/popular" />
           }
         </Route>
-    	 <Route path="/popular">
-          {user ?
-            <MovieList arr={popular} setPopular={setPopular} filter={filter} setFilter={setFilter} page={moPage} setPending={setPending} setPage={setMoPage} totalPages={totalMoPages} />
+    	  <Route path="/popular">
+          {
+          user ?
+          <MovieList arr={popular} setPopular={setPopular} filter={filter} setFilter={setFilter} page={moPage} setPending={setPending} setPage={setMoPage} totalPages={totalMoPages} />
           :
           <Redirect to="/" />
           }
         </Route>
         <Route path="/now_playing">
-          { user ?
+          { 
+          user ?
           <ActualList arr={actual} setCode={setCode} codes={codes} filter={filter} setFilter={setFilter} setPending={setPending} page={acPage} setPage={setAcPage} totalPages={totalAcPages}  />
           :
           <Redirect to="/" />
           }
-          </Route>
+        </Route>
         <Route path="/watch_list">
-        { user ?
+          { 
+          user ?
           <WatchList arr={pending} set={setPending}/>
           :
           <Redirect to="/" />

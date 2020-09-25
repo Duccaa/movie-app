@@ -3,15 +3,32 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 Modal.setAppElement('#root')
 
-const Button = styled.button`
-background-color: DarkCyan; 
-color: white; 
-border: none; 
-border-radius: 5px; 
-margin-right: 10px; 
-padding: 5px;
+const Div = styled.div`
+    display: inline-block;
+    background-color: white; 
+    margin: 10px; 
+    padding: 5px; 
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
+    transition: 0.3s; 
+    border-radius: 5px; 
+    width: 14rem; 
 `
-
+const Img = styled.img`
+    padding: 3px; 
+    border-radius: 10px; 
+    width: 13em; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+`
+const Button = styled.button`
+    background-color: DarkCyan; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    margin-right: 10px; 
+    padding: 5px;
+`
 const Movie = ({arr, filter, setPending }) => {
 
     const niz = arr.filter(movie => movie.title.toLowerCase().includes(filter.toLowerCase()))
@@ -36,8 +53,8 @@ const Movie = ({arr, filter, setPending }) => {
         <div style={{display: 'flex', flexWrap: 'wrap', marginLeft: '30px'}}>
             {
                 niz.map((movie ,i) => 
-                <div key={movie.id} style={{display: 'inline-block', backgroundColor: 'white', margin: '10px', padding: '5px', boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)', transition: '0.3s', borderRadius: '5px', width: '14rem' }} >
-                    <img  src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} alt="Movie_Poster" style={{padding: '3px', borderRadius: "10px", width: '13em', display: 'block', marginLeft: 'auto', marginRight: 'auto'}}/>
+                <Div key={movie.id}>
+                    <Img  src={`https://image.tmdb.org/t/p/w400/${movie.poster_path}`} alt="Movie_Poster" />
                     <div style={{padding: '2px 16px'}}>
                         <p style={{color: 'DarkCyan', textAlign: 'center'}}>{movie.title}</p>
                         <Button onClick={() =>openModal(i)}>More</Button>
@@ -70,13 +87,10 @@ const Movie = ({arr, filter, setPending }) => {
                         </div>
                         <Button onClick={() => closeModal(i)}>close</Button>
                     </Modal>
-                </div>
+                </Div>
             )}    
         </div>      
     )
 }
 
 export default Movie
-
-
-
