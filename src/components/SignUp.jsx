@@ -29,7 +29,7 @@ const SignUp = ({setUsers, users, setUser}) => {
     return(
         <Div>
         <h1 style={{color: 'darkcyan'}}>Welcome to The Movie Database.</h1>
-        <h3 style={{color: 'white'}}>To dive into the world of millions of movies SignUp or <a href="/login" style={{ color: 'darkcyan'}}>SignIn</a> now.</h3>
+        <h3 style={{color: 'white'}}>To dive into the world of millions of movies SignUp or <a href="/" style={{ color: 'darkcyan'}}>SignIn</a> now.</h3>
         <form style={{margin: '50px'}} onSubmit={(e) => {
             e.preventDefault()
             if(users.every(user => user.username !== `${usernameInput}` && user.password !== `${usernameInput}`)){

@@ -32,7 +32,7 @@ const SignIn = ({users, setUser, setUsers}) => {
     return(
         <Div>
         <h1 style={{color: 'darkcyan'}}>Login to your account</h1>
-        <h3 style={{color: 'white'}}>If you do not have an account, registering for an account is free. Click <a href="/" style={{ color: 'darkcyan'}}>here</a> to get started.</h3>
+        <h3 style={{color: 'white'}}>If you do not have an account, registering for an account is free. Click <a href="/signup" style={{ color: 'darkcyan'}}>here</a> to get started.</h3>
         <form style={{padding: '50px'}} 
          onSubmit={(e) => {
             e.preventDefault()
