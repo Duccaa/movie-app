@@ -42,7 +42,6 @@ const App = ({}) => {
     getPopularMovies().then(res => {
       setPopular(res.data.results)
       setTotalMoPages(res.data.total_pages)
-      console.log(res.data.results)
     })
 
     getNowPlayingMovies().then(res => {
@@ -72,31 +71,35 @@ const App = ({}) => {
     <Router basename="/movie-app"> 
       <Nav setUser={setUser} user={user} users={users} setUser={setUser}/>
       <Switch>
-        <Route exact path="/">
+         <Route exact path="/">
+            {!user ?
+          <SignIn setUser={setUser} users={users} user={user}/>
+           :
+           <Redirect to="/popular" />}
+        </Route>
+        <Route path="/signup">
           <SignUp users={users} setUsers={setUsers}/>
         </Route>
-        <Route exact path="/login">
-          <SignIn setUser={setUser} users={users}/>
-        </Route>
+       
     	 <Route path="/popular">
-          { user ?
+          {user ?
             <MovieList arr={popular} setPopular={setPopular} filter={filter} setFilter={setFilter} page={moPage} setPending={setPending} setPage={setMoPage} totalPages={totalMoPages} />
           :
-          <Redirect to="/login" />
+          <Redirect to="/" />
           }
         </Route>
         <Route path="/now_playing">
           { user ?
           <ActualList arr={actual} setCode={setCode} codes={codes} filter={filter} setFilter={setFilter} setPending={setPending} page={acPage} setPage={setAcPage} totalPages={totalAcPages}  />
           :
-          <Redirect to="/login" />
+          <Redirect to="/" />
           }
           </Route>
         <Route path="/watch_list">
         { user ?
           <WatchList arr={pending} set={setPending}/>
           :
-          <Redirect to="/login" />
+          <Redirect to="/" />
           }
         </Route>
       </Switch>

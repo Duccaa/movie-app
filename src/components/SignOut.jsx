@@ -11,7 +11,7 @@ const Button = styled.button`
 `
 const SignOut = (setUser, user) => {
     return (
-        <Button onClick={() => setUser(false)}><a href="/login" style={{color: 'LightSeaGreen', textDecoration: 'none'}}>SignOut</a></Button>
+        <Button onClick={() => setUser(false)}><a href="/" style={{color: 'LightSeaGreen', textDecoration: 'none'}}>SignOut</a></Button>
     )
 }
 

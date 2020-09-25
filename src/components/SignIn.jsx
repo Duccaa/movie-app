@@ -24,7 +24,7 @@ const Div = styled.div`
     background-size: cover;
 `
 
-const SignIn = ({users, setUser}) => {
+const SignIn = ({users, setUser, user}) => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -37,7 +37,7 @@ const SignIn = ({users, setUser}) => {
          onSubmit={(e) => {
             e.preventDefault()
             if(users.some(user => user.username === username && user.password === password)){
-                setUser(true)
+                setUser(username)
             } 
             else console.log('neisparavn unos')
          }}>

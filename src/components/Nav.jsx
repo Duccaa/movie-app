@@ -24,8 +24,8 @@ const Nav = ({setUsers}) => {
             <Link to="/now_playing" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Now in Cinemas |</Link>
             <Link to="/watch_list" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| My Watch List |</Link> 
             <SignOut setUsers={setUsers}/> 
-            <Link to="/" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Sign Up |</Link>
-            <Link to="/login" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Sign In |</Link>
+            <Link to="/signup" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Sign Up |</Link>
+            <Link to="/" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Sign In |</Link>
             
         </NavBar>
     )
