@@ -35,6 +35,7 @@ const SignUp = ({setUsers, users, setUser}) => {
             if(users.every(user => user.username !== `${usernameInput}` && user.password !== `${usernameInput}`)){
                 let tmp = users.push({username: `${usernameInput}`, pasword: `${passwordInput}`})
                 setUsers(tmp)
+                setUser(usernameInput)
                 console.log(users)
             } 
             else console.log('korisnik vec postoji')

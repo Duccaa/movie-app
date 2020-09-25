@@ -24,7 +24,7 @@ const Div = styled.div`
     background-size: cover;
 `
 
-const SignIn = ({users, setUser, user}) => {
+const SignIn = ({users, setUser, setUsers}) => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -39,7 +39,7 @@ const SignIn = ({users, setUser, user}) => {
             if(users.some(user => user.username === username && user.password === password)){
                 setUser(username)
             } 
-            else console.log('neisparavn unos')
+            else console.log('neispravan unos')
          }}>
             <Input type="text" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
             <Input type="password" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)}   />

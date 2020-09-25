@@ -69,18 +69,21 @@ const App = ({}) => {
 
   return (
     <Router basename="/movie-app"> 
-      <Nav setUser={setUser} user={user} users={users} setUser={setUser}/>
+      <Nav setUser={setUser} user={user} />
       <Switch>
          <Route exact path="/">
             {!user ?
-          <SignIn setUser={setUser} users={users} user={user}/>
+          <SignIn setUser={setUser} users={users} user={user} setUsers={setUsers}/>
            :
            <Redirect to="/popular" />}
         </Route>
         <Route path="/signup">
-          <SignUp users={users} setUsers={setUsers}/>
+        {!user ?
+          <SignUp users={users} setUsers={setUsers} setUser={setUser}/>
+          :
+          <Redirect to="/popular" />
+          }
         </Route>
-       
     	 <Route path="/popular">
           {user ?
             <MovieList arr={popular} setPopular={setPopular} filter={filter} setFilter={setFilter} page={moPage} setPending={setPending} setPage={setMoPage} totalPages={totalMoPages} />
