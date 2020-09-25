@@ -29,7 +29,7 @@ const Movie = ({arr, filter, setPending }) => {
             tmp[i]=false
             return  tmp
         });
-        console.log(modalIsOpen);
+        // console.log(modalIsOpen);
     }
 
     return (

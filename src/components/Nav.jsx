@@ -16,16 +16,17 @@ import styled from 'styled-components'
     `
     const link = "https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
  
-const Nav = (setUser, user) => {
+const Nav = ({setUsers}) => {
     return (
         <NavBar>
             <Img src={`${link}`} alt="The Movie Database Logo" />
             <Link to="/popular" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Movies |</Link>
             <Link to="/now_playing" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Now in Cinemas |</Link>
-            <Link to="/watch_list" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| My Watch List |</Link>
-            <SignOut setUser={setUser}/> 
+            <Link to="/watch_list" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| My Watch List |</Link> 
+            <SignOut setUsers={setUsers}/> 
             <Link to="/" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Sign Up |</Link>
             <Link to="/login" style={{padding: "10px", textDecoration: 'none', color: 'white'}}>| Sign In |</Link>
+            
         </NavBar>
     )
 }

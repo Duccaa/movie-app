@@ -9,10 +9,17 @@ import MovieList from './components/MovieList';
 import WatchList from './components/WatchList';
 import ActualList from './components/ActualList';
 
-const App = () => { 
+const App = ({}) => { 
 
-  const [users, setUsers] = useState([])
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(null)
+  const [users, setUsers] = useState([
+    {
+      username: 'marko',
+      password: 'marko22',
+      id: 1
+  }
+  ])
+ 
 
   const [filter, setFilter] = useState('')
   const [codes, setCodes] = useState([])
@@ -63,10 +70,10 @@ const App = () => {
 
   return (
     <Router basename="/movie-app"> 
-      <Nav setUser={setUser} user={user}/>
+      <Nav setUser={setUser} user={user} users={users} setUser={setUser}/>
       <Switch>
         <Route exact path="/">
-          <SignUp setUser={setUser} setUsers={setUsers} users={users}/>
+          <SignUp users={users} setUsers={setUsers}/>
         </Route>
         <Route exact path="/login">
           <SignIn setUser={setUser} users={users}/>

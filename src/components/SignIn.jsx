@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Redirect } from 'react-router-dom'
 
  const Input = styled.input`
     display: block; 
@@ -24,6 +25,7 @@ const Div = styled.div`
 `
 
 const SignIn = ({users, setUser}) => {
+
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
@@ -33,12 +35,11 @@ const SignIn = ({users, setUser}) => {
         <h3 style={{color: 'white'}}>If you do not have an account, registering for an account is free. Click <a href="/" style={{ color: 'darkcyan'}}>here</a> to get started.</h3>
         <form style={{padding: '50px'}} 
          onSubmit={(e) => {
-            e.prevent.Default()
+            e.preventDefault()
             if(users.some(user => user.username === username && user.password === password)){
-                setUser(username)
-                console.log(username)
+                setUser(true)
             } 
-            else{console.log('neispravni unos')}
+            else console.log('neisparavn unos')
          }}>
             <Input type="text" placeholder="Enter username" onChange={(e) => setUsername(e.target.value)} />
             <Input type="password" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)}   />
