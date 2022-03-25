@@ -14,7 +14,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - uuid
 
 ## Instalation 
-1. It is necessary to have installed NodeIs in local environment
+1. It is necessary to have installed Node.js in local environment
 2. Clone the repository
 3. In the project directory run: `npm install`
 
@@ -29,5 +29,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 3. Allows you to filter movies by title
 3. Clicking on the Movie Card opens a new page which provides additional information about the movie
 4. There is a possibility to add and delete movies in the user watch list
-5. There are Login and SignUp Forms
+5. There are LogIn and SignUp Forms
 
